@@ -9,7 +9,7 @@ class CardRepository(
     private val cardInfoLocalDataSource: CardInfoLocalDataSource
 ) {
 
-    suspend fun getCardInfo(bin: Int): CardInfoDto {
+    suspend fun getCardInfo(bin: Int): CardInfoModel {
         val cardInfo = cardInfoRemoteDataSource.getCardInfo(bin)
         cardInfoLocalDataSource.setCardInfo(
             CardInfoEntity(
@@ -21,12 +21,32 @@ class CardRepository(
                 prepaid = cardInfo.prepaid,
                 country = cardInfo.country,
                 bank = cardInfo.bank,
-            ))
-        return cardInfo
+            )
+        )
+
+        return CardInfoModel(
+            number = cardInfo.number,
+            scheme = cardInfo.scheme,
+            type = cardInfo.type,
+            brand = cardInfo.brand,
+            prepaid = cardInfo.prepaid,
+            country = cardInfo.country,
+            bank = cardInfo.bank,
+        )
     }
 
-    suspend fun getCardsInfoHistory(): List<CardInfoEntity> {
-        return cardInfoLocalDataSource.getCardsInfo()
+    suspend fun getCardsInfoHistory(): List<CardInfoModel> {
+        return cardInfoLocalDataSource.getCardsInfo().map {
+            CardInfoModel(
+                number = it.number,
+                scheme = it.scheme,
+                type = it.type,
+                brand = it.brand,
+                prepaid = it.prepaid,
+                country = it.country,
+                bank = it.bank,
+                )
+        }
     }
 
 }
