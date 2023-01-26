@@ -1,4 +1,4 @@
-package pa.chan.shift_test.data.dto.typeConverter
+package pa.chan.shift_test.data.dto.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

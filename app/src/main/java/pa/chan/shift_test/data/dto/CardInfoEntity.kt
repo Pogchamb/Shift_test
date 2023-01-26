@@ -6,12 +6,12 @@ import androidx.room.PrimaryKey
 @Entity
 class CardInfoEntity (
     @PrimaryKey val id: Int?,
-    val number: NumberEntity,
-    val scheme: String,
-    val type: String,
-    val brand: String,
-    val prepaid: Boolean,
-    val country: CountryEntity,
-    val bank: BankEntity,
+    val number: NumberEntity?,
+    val scheme: String?,
+    val type: String?,
+    val brand: String?,
+    val prepaid: Boolean?,
+    val country: CountryEntity?,
+    val bank: BankEntity?,
     val date: Long
 )

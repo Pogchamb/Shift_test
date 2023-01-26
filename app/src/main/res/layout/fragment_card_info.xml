@@ -13,6 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:hint="@string/input_bin_text"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="8"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -24,11 +27,13 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/inputBinButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search_text"
+        android:enabled="false"
+        android:backgroundTint="@color/primaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/binInputLayout" />
@@ -37,6 +42,7 @@
         android:id="@+id/cardInfoRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputBinButton">

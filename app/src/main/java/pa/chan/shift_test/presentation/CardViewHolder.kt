@@ -21,17 +21,20 @@ class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     @SuppressLint("SetTextI18n")
     fun bind(cardInfoModel: CardInfoModel) {
-        schemeText.text = cardInfoModel.scheme
-        brandText.text = cardInfoModel.brand
-        lengthText.text = cardInfoModel.number.length.toString()
-        luhnText.text = if (cardInfoModel.number.luhn) "Yes" else "No"
-        typeText.text = cardInfoModel.type
-        prepaidText.text = if (cardInfoModel.prepaid) "Yes" else "No"
-        countryText.text = "${cardInfoModel.country.emoji} ${cardInfoModel.country.name}"
+        schemeText.text = cardInfoModel.scheme ?: "-"
+        brandText.text = cardInfoModel.brand ?: "-"
+        lengthText.text = cardInfoModel.number?.length?.toString() ?: "-"
+        luhnText.text = if (cardInfoModel.number?.luhn == true) "Yes" else "No"
+        typeText.text = cardInfoModel.type ?: "-"
+        prepaidText.text = if (cardInfoModel.prepaid == true) "Yes" else "No"
+        countryText.text =
+            "${cardInfoModel.country?.emoji ?: "-"} ${cardInfoModel.country?.name ?: "-"}"
         coordinate.text =
-            "(latitude ${cardInfoModel.country.latitude}, longitude: ${cardInfoModel.country.longitude})"
+            "(latitude ${cardInfoModel.country?.latitude ?: "-"}, longitude: ${cardInfoModel.country?.longitude ?: "-"})"
         bankText.text =
-            "${cardInfoModel.bank.name}, ${cardInfoModel.bank.city} \n${cardInfoModel.bank.url}\n${cardInfoModel.bank.phone}"
+                    (cardInfoModel.bank?.name ?: "-") +
+                    "\n${cardInfoModel.bank?.city ?: "-"}" +
+                    "\n${cardInfoModel.bank?.url ?: "-"}" +
+                    "\n${cardInfoModel.bank?.phone ?: "-"}"
     }
-
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="primaryText">
+        <item name="android:textSize">14sp</item>
+        <item name="color">@color/greyDark</item>
+    </style>
+
+    <style name="secondaryText" parent="@style/primaryText">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="bankText" parent="@style/primaryText">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="button">
+        <item name="android:background">@color/primary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="card">
+        <item name="android:layout_margin">12dp</item>
+        <item name="cardBackgroundColor">@color/greyLight</item>
+        <item name="strokeColor">@color/grey</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardCornerRadius">15dp</item>
+
+    </style>
+</resources>

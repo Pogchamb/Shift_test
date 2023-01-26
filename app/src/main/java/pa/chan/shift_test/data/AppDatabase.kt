@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import pa.chan.shift_test.data.dto.CardInfoEntity
-import pa.chan.shift_test.data.dto.typeConverter.EntityConverter
+import pa.chan.shift_test.data.dto.converters.EntityConverter
 
 @Database(entities = [CardInfoEntity::class], version = 1)
 @TypeConverters(EntityConverter::class)

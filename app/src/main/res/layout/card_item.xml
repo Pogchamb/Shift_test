@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp">
+    style="@style/card">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,17 +13,18 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/scheme"
+            style="@style/primaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:text="@string/scheme"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.1" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/schemeText"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/scheme"
@@ -31,6 +32,7 @@
 
         <TextView
             android:id="@+id/brand"
+            style="@style/primaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/brand"
@@ -40,6 +42,7 @@
 
         <TextView
             android:id="@+id/brandText"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/brand"
@@ -47,6 +50,7 @@
 
         <TextView
             android:id="@+id/cardNumber"
+            style="@style/primaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/number"
@@ -56,35 +60,35 @@
 
         <TextView
             android:id="@+id/length"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:text="@string/length"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/cardNumber"
-            app:layout_constraintTop_toBottomOf="@+id/cardNumber"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            app:layout_constraintTop_toBottomOf="@+id/cardNumber" />
 
         <TextView
             android:id="@+id/lengthText"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/length"
-            app:layout_constraintTop_toBottomOf="@+id/length" />
+            app:layout_constraintTop_toBottomOf="@+id/length"/>
 
         <TextView
             android:id="@+id/luhn"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="@string/Luhn"
             app:layout_constraintStart_toEndOf="@+id/length"
-            app:layout_constraintTop_toTopOf="@+id/length"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+            app:layout_constraintTop_toTopOf="@+id/length"/>
 
         <TextView
             android:id="@+id/luhnText"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/luhn"
@@ -93,16 +97,18 @@
 
         <TextView
             android:id="@+id/type"
+            style="@style/primaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/type"
             app:layout_constraintEnd_toStartOf="@+id/bank"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.3"
             app:layout_constraintStart_toEndOf="@+id/scheme"
             app:layout_constraintTop_toTopOf="@+id/scheme" />
 
         <TextView
             android:id="@+id/typeText"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/type"
@@ -110,6 +116,7 @@
 
         <TextView
             android:id="@+id/prepaid"
+            style="@style/primaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/prepaid"
@@ -118,6 +125,7 @@
 
         <TextView
             android:id="@+id/prepaidText"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/prepaid"
@@ -125,6 +133,7 @@
 
         <TextView
             android:id="@+id/country"
+            style="@style/primaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/country"
@@ -133,6 +142,7 @@
 
         <TextView
             android:id="@+id/countryText"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/country"
@@ -140,6 +150,7 @@
 
         <TextView
             android:id="@+id/coordinate"
+            style="@style/secondaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/countryText"
@@ -147,20 +158,22 @@
 
         <TextView
             android:id="@+id/bank"
+            style="@style/primaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bank"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.96"
+            app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/scheme" />
 
         <TextView
             android:id="@+id/bankText"
+            style="@style/bankText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/bank"
-            app:layout_constraintTop_toBottomOf="@+id/bank" />
+            app:layout_constraintTop_toBottomOf="@+id/bank"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

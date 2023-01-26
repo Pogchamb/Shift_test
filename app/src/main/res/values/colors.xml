@@ -5,6 +5,18 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+
+
     <color name="black">#FF000000</color>
+    <color name="greyLight">#edf2f4</color>
+    <color name="grey">#8d99ae</color>
+    <color name="greyDark">#2b2d42</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primaryDark">#4361ee</color>
+    <color name="primary">#4895ef</color>
+    <color name="primaryLight">#48cae4</color>
+
+
 </resources>
