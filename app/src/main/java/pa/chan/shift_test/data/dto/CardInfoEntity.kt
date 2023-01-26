@@ -12,5 +12,6 @@ class CardInfoEntity (
     val brand: String,
     val prepaid: Boolean,
     val country: CountryEntity,
-    val bank: BankEntity
+    val bank: BankEntity,
+    val date: Long
 )

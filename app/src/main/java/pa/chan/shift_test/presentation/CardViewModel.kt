@@ -4,12 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import pa.chan.shift_test.domain.GetCardHistoryUseCase
 import pa.chan.shift_test.domain.GetCardInfoUseCase
-import pa.chan.shift_test.domain.entity.CardInfoModel
+import pa.chan.shift_test.domain.model.CardInfoModel
+import javax.inject.Inject
 
-class CardViewModel(
+@HiltViewModel
+class CardViewModel @Inject constructor(
     private val getCardInfoUseCase: GetCardInfoUseCase,
     private val getCardHistoryUseCase: GetCardHistoryUseCase,
 ) : ViewModel() {
@@ -20,13 +23,13 @@ class CardViewModel(
 
     fun fetchCardInfo(bin: Int) {
         viewModelScope.launch {
-            _cardLiveData.postValue(listOf(getCardInfoUseCase(bin)))
+            _cardLiveData.postValue(getCardInfoUseCase(bin).orEmpty())
         }
     }
 
     fun fetchCardHistory() {
         viewModelScope.launch {
-            _cardLiveData.postValue(getCardHistoryUseCase())
+            _cardLiveData.postValue(getCardHistoryUseCase().orEmpty())
         }
     }
 

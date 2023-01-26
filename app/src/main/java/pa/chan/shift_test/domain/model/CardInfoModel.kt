@@ -1,4 +1,4 @@
-package pa.chan.shift_test.domain.entity
+package pa.chan.shift_test.domain.model
 
 import pa.chan.shift_test.data.dto.BankEntity
 import pa.chan.shift_test.data.dto.CountryEntity
