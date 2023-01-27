@@ -25,6 +25,5 @@
         <item name="strokeColor">@color/grey</item>
         <item name="strokeWidth">1dp</item>
         <item name="cardCornerRadius">15dp</item>
-
     </style>
 </resources>

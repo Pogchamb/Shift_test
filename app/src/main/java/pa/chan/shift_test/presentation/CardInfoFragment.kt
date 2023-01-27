@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import pa.chan.shift_test.R
 
 @AndroidEntryPoint
-class CardInfo : Fragment() {
+class CardInfoFragment : Fragment() {
     private lateinit var cardInfoRecyclerView: RecyclerView
     private lateinit var buttonSearch: MaterialButton
     private lateinit var inputBinEditText: TextInputEditText
@@ -29,7 +28,6 @@ class CardInfo : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_card_info, container, false)
     }
 
@@ -55,7 +53,7 @@ class CardInfo : Fragment() {
                 buttonSearch.isEnabled = !buttonSearch.isEnabled
             } else {
                 inputBinLayout.isErrorEnabled = true
-                inputBinLayout.error = "Введите 8 цифр"
+                inputBinLayout.error = getString(R.string.errorInputMessage)
             }
         }
 

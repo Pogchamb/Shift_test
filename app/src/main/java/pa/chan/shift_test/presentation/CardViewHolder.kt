@@ -18,8 +18,6 @@ class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val coordinate: TextView = view.findViewById(R.id.coordinate)
     private val bankText: TextView = view.findViewById(R.id.bankText)
 
-
-    @SuppressLint("SetTextI18n")
     fun bind(cardInfoModel: CardInfoModel) {
         schemeText.text = cardInfoModel.scheme ?: "-"
         brandText.text = cardInfoModel.brand ?: "-"

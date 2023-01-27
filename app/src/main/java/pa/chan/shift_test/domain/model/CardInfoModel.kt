@@ -1,15 +1,34 @@
 package pa.chan.shift_test.domain.model
 
-import pa.chan.shift_test.data.dto.BankEntity
-import pa.chan.shift_test.data.dto.CountryEntity
-import pa.chan.shift_test.data.dto.NumberEntity
-
 data class CardInfoModel(
-    val number: NumberEntity?,
+    val number: NumberModel?,
     val scheme: String?,
     val type: String?,
     val brand: String?,
     val prepaid: Boolean?,
-    val country: CountryEntity?,
-    val bank: BankEntity?,
+    val country: CountryModel?,
+    val bank: BankModel?,
+)
+
+data class NumberModel(
+    val length: Int?,
+    val luhn: Boolean?,
+)
+
+
+data class CountryModel(
+    val numeric: Int?,
+    val alpha2: String?,
+    val name: String?,
+    val emoji: String?,
+    val currency: String?,
+    val latitude: Int?,
+    val longitude: Int?,
+)
+
+data class BankModel(
+    val name: String?,
+    val url: String?,
+    val phone: String?,
+    val city: String?,
 )

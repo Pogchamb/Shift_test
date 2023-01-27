@@ -1,6 +1,5 @@
 package pa.chan.shift_test.domain
 
-import pa.chan.shift_test.data.CardRepository
 import pa.chan.shift_test.domain.model.CardInfoModel
 import javax.inject.Inject
 
