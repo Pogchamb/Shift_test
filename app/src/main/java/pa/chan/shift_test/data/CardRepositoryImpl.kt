@@ -4,6 +4,7 @@ import pa.chan.shift_test.data.dto.extansion.toEntity
 import pa.chan.shift_test.data.dto.extansion.toModel
 import pa.chan.shift_test.domain.CardRepository
 import pa.chan.shift_test.domain.model.CardInfoModel
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 class CardRepositoryImpl @Inject constructor(
@@ -12,12 +13,18 @@ class CardRepositoryImpl @Inject constructor(
 ): CardRepository {
 
     override suspend fun getCardInfo(bin: Int): List<CardInfoModel> {
-        val cardInfo = cardInfoRemoteDataSource.getCardInfo(bin)
-        cardInfoLocalDataSource.setCardInfo(
-            cardInfo.toEntity()
-        )
+        return try {
+            val cardInfo = cardInfoRemoteDataSource.getCardInfo(bin)
+            cardInfoLocalDataSource.setCardInfo(
+                cardInfo.toEntity()
+            )
 
-        return getCardsInfoHistory()
+            getCardsInfoHistory()
+        }catch (e: UnknownHostException) {
+            throw e
+        }catch (e: retrofit2.HttpException) {
+            throw e
+        }
     }
 
     override suspend fun getCardsInfoHistory(): List<CardInfoModel> {

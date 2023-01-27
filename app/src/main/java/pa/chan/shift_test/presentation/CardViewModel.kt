@@ -9,7 +9,9 @@ import kotlinx.coroutines.launch
 import pa.chan.shift_test.domain.GetCardHistoryUseCase
 import pa.chan.shift_test.domain.GetCardInfoUseCase
 import pa.chan.shift_test.domain.model.CardInfoModel
+import java.net.UnknownHostException
 import javax.inject.Inject
+
 
 @HiltViewModel
 class CardViewModel @Inject constructor(
@@ -21,10 +23,22 @@ class CardViewModel @Inject constructor(
     val cardLiveData: LiveData<List<CardInfoModel>>
         get() = _cardLiveData
 
+    private val _errorLiveData: MutableLiveData<CustomError> = MutableLiveData()
+    val errorLiveData: LiveData<CustomError>
+        get() = _errorLiveData
+
     fun fetchCardInfo(bin: Int) {
+
         viewModelScope.launch {
-            _cardLiveData.postValue(getCardInfoUseCase(bin).orEmpty())
+            try {
+                _cardLiveData.postValue(getCardInfoUseCase(bin).orEmpty())
+            } catch (e: UnknownHostException) {
+                _errorLiveData.postValue(CustomError.CustomUnknownHostException)
+            } catch (e: retrofit2.HttpException) {
+                _errorLiveData.postValue(CustomError.CustomHttpException)
+            }
         }
+
     }
 
     fun fetchCardHistory() {

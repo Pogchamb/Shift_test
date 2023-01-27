@@ -1,15 +1,16 @@
 package pa.chan.shift_test.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,16 +43,21 @@ class CardInfoFragment : Fragment() {
 
         cardInfoRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.cardLiveData.observe(viewLifecycleOwner) {
-            cardInfoRecyclerView.adapter = CardAdapter(it)
+                cardInfoRecyclerView.adapter = CardAdapter(it)
+        }
+
+        viewModel.errorLiveData.observe(viewLifecycleOwner) {
+
+            val snackbar = Snackbar.make(view, it.message, Snackbar.LENGTH_SHORT)
+            snackbar.show()
         }
 
         inputBinEditText.addTextChangedListener {
-
-
             if (it?.length == 8) {
                 inputBinLayout.isErrorEnabled = false
-                buttonSearch.isEnabled = !buttonSearch.isEnabled
+                buttonSearch.isEnabled = true
             } else {
+                buttonSearch.isEnabled = false
                 inputBinLayout.isErrorEnabled = true
                 inputBinLayout.error = getString(R.string.errorInputMessage)
             }

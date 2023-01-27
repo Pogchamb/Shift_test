@@ -19,7 +19,7 @@
     </style>
 
 
-    <style name="card">
+    <style name="card" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_margin">12dp</item>
         <item name="cardBackgroundColor">@color/greyLight</item>
         <item name="strokeColor">@color/grey</item>
