@@ -15,7 +15,6 @@ data class NumberModel(
     val luhn: Boolean?,
 )
 
-
 data class CountryModel(
     val numeric: Int?,
     val alpha2: String?,

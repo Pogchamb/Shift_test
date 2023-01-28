@@ -12,12 +12,10 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import pa.chan.shift_test.data.AppDatabase
 import pa.chan.shift_test.data.CardInfoApi
-import pa.chan.shift_test.data.CardInfoDao
 import pa.chan.shift_test.data.CardRepositoryImpl
 import pa.chan.shift_test.domain.CardRepository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module

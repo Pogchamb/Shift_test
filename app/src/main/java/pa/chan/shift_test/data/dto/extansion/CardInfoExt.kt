@@ -35,7 +35,7 @@ fun CardInfoDto.toEntity(): CardInfoEntity = CardInfoEntity(
 )
 
 fun CardInfoEntity.toModel(): CardInfoModel = CardInfoModel(
-    number =    NumberModel(
+    number = NumberModel(
         this.number?.length,
         this.number?.luhn
     ),

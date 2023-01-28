@@ -8,6 +8,6 @@ import pa.chan.shift_test.data.dto.converters.EntityConverter
 
 @Database(entities = [CardInfoEntity::class], version = 1)
 @TypeConverters(EntityConverter::class)
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
     abstract fun cardInfoDao(): CardInfoDao
 }

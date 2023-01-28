@@ -6,7 +6,7 @@ data class CardInfoDto(
     val type: String?,
     val brand: String?,
     val prepaid: Boolean,
-    val country:  CountryDto?,
+    val country: CountryDto?,
     val bank: BankDto?,
 )
 

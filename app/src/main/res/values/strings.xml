@@ -16,4 +16,6 @@
     <string name="input_bin_text">Введите BIN</string>
 
     <string name="errorInputMessage">Введите 8 цифр</string>
+    <string name="errorHostException">Проверьте ваше подключение к интернету</string>
+    <string name="errorHttpException">Kарта не найдена</string>
 </resources>

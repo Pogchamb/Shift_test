@@ -1,5 +1,7 @@
 package pa.chan.shift_test.presentation
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +26,6 @@ class CardInfoFragment : Fragment() {
     private lateinit var inputBinLayout: TextInputLayout
     private val viewModel: CardViewModel by viewModels()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,14 +44,32 @@ class CardInfoFragment : Fragment() {
 
         cardInfoRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.cardLiveData.observe(viewLifecycleOwner) {
-                cardInfoRecyclerView.adapter = CardAdapter(it)
+            cardInfoRecyclerView.adapter = CardAdapter(it).apply {
+                this.onPhoneClick = { phone ->
+
+                    val intent = Intent(Intent.ACTION_DIAL)
+                    intent.data = Uri.parse("tel:$phone")
+                    startActivity(intent)
+                }
+                this.onUrlClick = { url ->
+                    val browseIntent =
+                        Intent(Intent.ACTION_VIEW, Uri.parse("http://$url"))
+                    startActivity(browseIntent)
+                }
+                this.onCoordinateClick = { country ->
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_VIEW
+                    intent.data = Uri.parse("geo:${country.latitude},${country.longitude}")
+                    startActivity(intent)
+                }
+            }
         }
 
         viewModel.errorLiveData.observe(viewLifecycleOwner) {
-
             val snackbar = Snackbar.make(view, it.message, Snackbar.LENGTH_SHORT)
             snackbar.show()
         }
+
 
         inputBinEditText.addTextChangedListener {
             if (it?.length == 8) {

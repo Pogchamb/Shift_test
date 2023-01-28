@@ -12,5 +12,5 @@ interface CardInfoDao {
     suspend fun getAll(): List<CardInfoEntity>
 
     @Insert
-    suspend fun insert(cardInfo : CardInfoEntity)
+    suspend fun insert(cardInfo: CardInfoEntity)
 }

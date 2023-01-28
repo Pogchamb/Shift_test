@@ -10,7 +10,7 @@ import javax.inject.Inject
 class CardRepositoryImpl @Inject constructor(
     private val cardInfoRemoteDataSource: CardInfoRemoteDataSource,
     private val cardInfoLocalDataSource: CardInfoLocalDataSource
-): CardRepository {
+) : CardRepository {
 
     override suspend fun getCardInfo(bin: Int): List<CardInfoModel> {
         return try {
@@ -20,9 +20,9 @@ class CardRepositoryImpl @Inject constructor(
             )
 
             getCardsInfoHistory()
-        }catch (e: UnknownHostException) {
+        } catch (e: UnknownHostException) {
             throw e
-        }catch (e: retrofit2.HttpException) {
+        } catch (e: retrofit2.HttpException) {
             throw e
         }
     }
