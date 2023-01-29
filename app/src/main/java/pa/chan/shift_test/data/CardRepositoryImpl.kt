@@ -18,7 +18,6 @@ class CardRepositoryImpl @Inject constructor(
             cardInfoLocalDataSource.setCardInfo(
                 cardInfo.toEntity()
             )
-
             getCardsInfoHistory()
         } catch (e: UnknownHostException) {
             throw e

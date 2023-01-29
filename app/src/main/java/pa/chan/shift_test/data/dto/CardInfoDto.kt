@@ -15,7 +15,6 @@ data class NumberDto(
     val luhn: Boolean?,
 )
 
-
 data class CountryDto(
     val numeric: Int?,
     val alpha2: String?,

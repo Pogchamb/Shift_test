@@ -18,6 +18,9 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="customThemeColorPrimary" parent="Theme.Shift_test">
+        <item name="backgroundColor">@color/primary</item>
+    </style>
 
     <style name="card" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_margin">12dp</item>

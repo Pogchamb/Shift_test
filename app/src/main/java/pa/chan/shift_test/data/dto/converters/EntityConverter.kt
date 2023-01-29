@@ -38,5 +38,4 @@ class EntityConverter {
         return Gson().fromJson(stringBankEntity, BankEntity::class.java)
     }
 
-
 }

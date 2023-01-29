@@ -33,7 +33,6 @@ class CardInfoFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_card_info, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -69,7 +68,6 @@ class CardInfoFragment : Fragment() {
             val snackbar = Snackbar.make(view, it.message, Snackbar.LENGTH_SHORT)
             snackbar.show()
         }
-
 
         inputBinEditText.addTextChangedListener {
             if (it?.length == 8) {
